@@ -1,0 +1,43 @@
+		public class GalleryDemoPagerAdapter extends PagerAdapter{
+
+			@Override
+			public int getCount() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+
+			@Override
+			public boolean isViewFromObject(View arg0, Object arg1) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			
+			@Override
+			public Object instantiateItem(ViewGroup container, int position){
+				
+				return null;
+			}
+
+			
+			@Override
+			public void destroyItem(ViewGroup container, int position, Object object){
+				
+			}
+			
+			@Override
+			public void finishUpdate (ViewGroup container){
+				
+			}
+			
+			@Override
+			public int getItemPosition (Object object){
+				
+				return 0;
+			}
+			
+			@Override 
+			public CharSequence getPageTitle (int position){
+				return "";
+			}
+		}

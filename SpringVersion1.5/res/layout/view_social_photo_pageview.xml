@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#8195AF" >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/social_photo_pageview_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_above="@+id/social_photo_pageview_editfield"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" />
+
+    <tracker.UI.view.RegisteredEditText
+        android:id="@+id/social_photo_pageview_editfield"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/social_photo_pageview_submit"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:maxLines="5"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <tracker.UI.view.EventCheckerButton
+        android:id="@+id/social_photo_pageview_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="Post" />
+
+</RelativeLayout>

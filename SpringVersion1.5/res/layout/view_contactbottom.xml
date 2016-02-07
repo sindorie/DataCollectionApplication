@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#EF7A6B"
+    android:gravity="center"
+    android:orientation="vertical" 
+    android:layout_alignParentBottom="true" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EF7A6B"
+        android:orientation="horizontal" >
+
+        <tracker.UI.view.EventRecordedImageView
+            android:id="@+id/contact_ic_important"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/contact_detail_iconpadding"
+            android:src="@drawable/ic_action_important" />
+
+        <tracker.UI.view.EventRecordedImageView
+            android:id="@+id/contact_ic_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/contact_detail_iconpadding"
+            android:src="@drawable/ic_action_user" />
+
+<!--         <ImageButton -->
+		<tracker.UI.view.EventRecordedImageView
+            android:id="@+id/contact_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/ic_action_add_person"
+            android:padding="@dimen/contact_detail_iconpadding" />
+<!-- contact_detail_iconpadding -->
+		 
+        <tracker.UI.view.EventRecordedImageView
+            android:id="@+id/contact_ic_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="@dimen/contact_detail_iconpadding"
+            android:src="@drawable/ic_action_time" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EF7A6B"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Favorite"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Contacts"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Add"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Recents"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+</LinearLayout>

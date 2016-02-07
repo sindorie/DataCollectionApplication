@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00FFFF"
+    android:orientation="vertical" >
+    
+	<View
+	    android:layout_width="100dp"
+	    android:layout_height="500dp"
+	    android:background="#FF00FF"
+		
+	    ></View>
+
+	<tracker.UI.view.RegisteredEditText
+	    android:id="@+id/editText1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentRight="true"
+	    android:ems="10" />
+
+	<tracker.UI.view.RegisteredEditText
+	    android:id="@+id/editText2"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentBottom="true"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentRight="true"
+	    android:ems="10" />
+	
+</RelativeLayout>

@@ -1,0 +1,37 @@
+FragmentTransaction ft0,ft1,ft2;
+			ft0=ft1=ft2=null;
+			boolean goOn = true;
+			String levelX = "level0";
+			if(savedInstanceState.containsKey(levelX)){
+				GalleryListFragment fragment = new GalleryListFragment();
+				Bundle args = savedInstanceState.getBundle(levelX);
+				fragment.setArguments(args);
+				ft0 = fragmentManager.beginTransaction();
+				ft0 = ft0.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+				.replace(toReplace, fragment, levelX).addToBackStack(levelX);
+			}else{
+				Log.v("mark","unexpected");
+			}
+			levelX="level1";
+			if(savedInstanceState.containsKey(levelX)){
+				GalleryWaterFallFragment fragment = new GalleryWaterFallFragment();
+				Bundle args = savedInstanceState.getBundle(levelX);
+				fragment.setArguments(args);
+				ft1 = fragmentManager.beginTransaction();
+				ft1 = ft1.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+				.replace(toReplace, fragment, levelX).addToBackStack(levelX);
+			}else if(ft0!=null){
+				ft0.commit();
+			}
+			levelX="level2";
+			if(savedInstanceState.containsKey(levelX)){
+				GalleryDemoFragment fragment = new GalleryDemoFragment();
+				Bundle args = savedInstanceState.getBundle(levelX);
+				fragment.setArguments(args);
+				ft2 = fragmentManager.beginTransaction();
+				ft2 = ft2.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+				.replace(toReplace, fragment, levelX).addToBackStack(levelX);
+			}else if(ft1!=null){
+				ft1.commit();
+			}
+			if(ft2!=null)ft2.commit();

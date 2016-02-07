@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_above="@+id/keyboardview" >
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <!--
+         android:layout_above="@+id/keyboardview"
+         As the main content view, the view below consumes the entire
+         space available using match_parent in both dimensions.
+        -->
+
+        <RelativeLayout
+            android:id="@+id/toreplace"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/left"
+            android:layout_width="270dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:background="#00CCCCCC" >
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/right"
+            android:layout_width="270dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="#00CCCCCC" >
+        </RelativeLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+    <tracker.UI.components.MyKeyboardView
+        android:id="@+id/keyboardview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:visibility="gone" />
+        
+        <!-- android.inputmethodservice.KeyboardView -->
+
+</RelativeLayout>

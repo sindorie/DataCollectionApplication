@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp" >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/social_friend_photo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingRight="10dp" />
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="4"
+        android:background="#9BA5B1"
+        android:gravity="center_vertical"  >
+
+        <TextView
+            android:id="@+id/social_friend_first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Medium Text"
+            android:layout_centerVertical="true"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/social_friend_last"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Medium Text"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/social_friend_first"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#FFFFFF" />
+
+        <RelativeLayout
+            android:id="@+id/social_friend_addswitch_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" >
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/social_friend_addswitch_notfriend"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/icon_addfriend" />
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/social_friend_addswitch_isfriend"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@layout/bg_bank_banner"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:id="@+id/bank_trans_from"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="From:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <tracker.UI.view.EventRecordedSpinner
+                android:id="@+id/transfer_account1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/bank_trans_from" />
+
+            <TextView
+                android:id="@+id/bank_trans_balance1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/transfer_account1"
+                android:layout_toRightOf="@+id/bank_trans_from"
+                android:text="Balance: " />
+
+            <TextView
+                android:id="@+id/bank_trans_value1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/transfer_account1"
+                android:layout_toRightOf="@+id/bank_trans_balance1"
+                android:text="value " />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@layout/bg_bank_banner"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:id="@+id/bank_trans_to"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:text="To:"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <tracker.UI.view.EventRecordedSpinner
+                android:id="@+id/transfer_account2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/bank_trans_to" />
+
+            <TextView
+                android:id="@+id/bank_trans_balance2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/transfer_account2"
+                android:layout_toRightOf="@+id/bank_trans_to"
+                android:text="Balance: " />
+
+            <TextView
+                android:id="@+id/bank_trans_value2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/transfer_account2"
+                android:layout_toRightOf="@+id/bank_trans_balance2"
+                android:text="value " />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@layout/bg_bank_banner"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Amount: "
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <tracker.UI.view.RegisteredEditText
+                android:id="@+id/transfer_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Enter the amount for transfer"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#CCCCCC"
+            android:padding="5dp" >
+
+            <tracker.UI.view.EventCheckerButton
+                android:id="@+id/transfer_button"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Transfer" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

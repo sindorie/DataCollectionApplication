@@ -1,0 +1,19 @@
+//			Cursor android.database.sqlite.SQLiteDatabase.query(
+//			String table, 
+//			String[] columns, 
+//			String selection, 
+//			String[] selectionArgs, 
+//			String groupBy, 
+//			String having, 
+//			String orderBy)
+			
+//			"CREATE TABLE review(_id INT, rest_id INT, user_id, stars INT, photo TEXT, comment TEXT)"
+//			cur.getInt(0),
+//			cur.getInt(1),
+//			cur.getInt(2),
+//			cur.getInt(3),
+//			cur.getString(4),
+//			cur.getString(5)
+			
+			
+//			"CREATE TABLE restaurant(_id INT, rate REAL, name TEXT, phone TEXT, address TEXT, image TEXT, description TEXT)",

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:padding="5dp"
+    android:layout_height="wrap_content"
+    android:background="@layout/bg_bank_account" >
+
+    <TextView
+        android:id="@+id/account_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:text="account name"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <TextView
+        android:id="@+id/account_text_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_name"
+        android:paddingLeft="100dp"
+        android:text="Ballance: "
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+	<TextView
+        android:id="@+id/account_balance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/account_name"
+        android:layout_toRightOf="@+id/account_text_balance"
+        android:text="$1,562.43"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/account_arrow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:paddingRight="5dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/right_arrow" />
+
+    
+
+</RelativeLayout>

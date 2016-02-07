@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="5dp" >
+
+    <ScrollView
+        android:id="@+id/social_newscommentlist_wrapper"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/social_news_comment_bottom"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+        <LinearLayout
+            android:id="@+id/social_newscommentlist_top_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <include
+                android:id="@+id/social_newscommentlist_top_element"
+                layout="@layout/view_social_newsfeedelement" />
+
+            <include layout="@layout/view_separater" />
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/social_news_comment_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:background="#DDDDDD"
+        android:orientation="horizontal"
+        android:gravity="center_vertical" >
+
+        <tracker.UI.view.EventRecordedImageView
+            android:id="@+id/social_news_comment_bottom_image"
+            android:layout_width="0dp"
+            android:layout_weight="0.2"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_action_camera" />
+        <tracker.UI.view.RegisteredEditText
+            android:id="@+id/social_news_comment_bottom_comment"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="match_parent"
+            android:hint="Write a comment..."
+            android:ems="10"
+            android:background="@layout/rect_social_comment" />
+        <tracker.UI.view.EventCheckerButton
+            android:id="@+id/social_news_comment_bottom_button"
+            android:layout_width="0dp"
+            android:layout_weight="0.20"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="Post" />
+    </LinearLayout>
+
+</RelativeLayout>

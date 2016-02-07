@@ -1,0 +1,230 @@
+public static class TaskPanelFragment extends Fragment{
+		private View[] taskViews;
+		private String corKey = "cor";
+		private String focusKey = "focy";
+		private int focus;
+		private int[] currentPosition;
+		private String[] taskList = {"Contact","Foodie","Bank","Gallery","Web"};
+		private Class[] classList = {Contact.class,Foodie.class};
+		
+		private GridLayout grid;
+		
+		public TaskPanelFragment(){
+			focus = 0;
+		}
+	
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState) {
+        	View view = inflater.inflate(R.layout.frag_task, container,false);
+        	grid = (GridLayout)view.findViewById(R.id.task_grid);
+        	if(taskViews==null) taskViews = initTaskViews(inflater,grid);
+        	if(savedInstanceState == null || !savedInstanceState.containsKey(corKey)){
+        		//no previous information
+        		currentPosition = getDefaultPosition();
+        		addViewToGrid(grid,currentPosition);
+        	}else{
+        		//has previous information
+        		currentPosition = savedInstanceState.getIntArray(corKey);
+        		addViewToGrid(grid,currentPosition);
+        	}
+        	grid.setOnDragListener(dragListener);
+        	grid.setRowOrderPreserved(true);
+        	grid.setColumnOrderPreserved(true);
+        	Log.v("mark", "width:"+view.getHeight());
+        	return view;
+        }
+        
+        public void onSaveInstanceState (Bundle outState){
+        	super.onSaveInstanceState(outState);
+        	outState.putIntArray(corKey, currentPosition);
+        	outState.putInt(focusKey, focus);
+        }
+        
+        private View.OnClickListener listener = new View.OnClickListener(){
+			@Override
+			public void onClick(View arg0) {
+				String name = arg0.getTag().toString().trim();				
+				int index = -1;
+				for(int i=0;i<taskList.length;i++){
+					if(taskList[i].equals(name)){
+						index = i; break;
+					}
+				}
+				
+				if(index >= 0 && index<classList.length &&classList[index]!=null){
+					Intent intent = new Intent(TaskPanelFragment.this.getActivity()
+							,classList[index]);
+					startActivity(intent);
+				}
+			}
+        };
+        
+        private View.OnDragListener dragListener = new View.OnDragListener(){
+			private Point init = new Point();
+			private Point drop = new Point();
+			private View dragging = null;
+			@Override
+			public boolean onDrag(View view, DragEvent event) {
+				if(grid == null) return false;
+				ClipDescription description = event.getClipDescription();
+				if(description == null || !description.hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)){
+					Log.v("Condition", "description is null, type: "+event.getAction());
+					return false; //should not happen for most events except ACTION_DRAG_ENDED
+				}
+				switch(event.getAction()){
+				case DragEvent.ACTION_DRAG_STARTED:{
+					//needs to get the coordinate of the view in the grid layout
+					int initX = (int)event.getX();
+					int initY = (int)event.getY();
+					pixelToCor(grid,initX,initY,init);
+					Log.v("mark", "cor: "+init.toString());
+					
+					String name = description.getLabel().toString();
+					Log.v("mark", "item is "+name);
+					//find and hide the view
+					View child = grid.findViewWithTag(name);
+					if(child == null){
+						Log.v("mark", "cannot find view");
+					}else{ 
+						dragging = child; 
+						dragging.setVisibility(View.INVISIBLE);
+					}
+					
+				}break;
+				case DragEvent.ACTION_DRAG_LOCATION:{
+				}break;
+				case DragEvent.ACTION_DRAG_ENTERED:{
+				}break;
+				case DragEvent.ACTION_DRAG_EXITED:{
+				}break;
+				case DragEvent.ACTION_DRAG_ENDED:{
+				}break;
+				case DragEvent.ACTION_DROP:{
+					//calculate the target coordinate in gridlayout
+					int dropX = (int)event.getX();
+					int dropY = (int)event.getY();
+					pixelToCor(grid,dropX,dropY,drop);
+					Log.v("mark", "destination:"+drop);
+					if(init.equals(drop)){//assume to be implemented
+						//the same position, do nothing
+						Log.v("mark", "coordinates are the same");
+						if(dragging != null) dragging.setVisibility(View.VISIBLE);
+					}else{
+						if(dragging == null) return true;
+						ViewGroup vg = (ViewGroup)dragging.getParent();
+						vg.removeView(dragging);
+						GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+						params.rowSpec = GridLayout.spec(drop.x);
+						params.columnSpec = GridLayout.spec(drop.y);
+						dragging.setVisibility(View.VISIBLE);
+						grid.addView(dragging, params);
+						grid.invalidate();
+						dragging = null;
+					}
+				}break;
+				}
+				return true;
+			}
+		};
+		
+		private void pixelToCor(GridLayout layout,int currentX, int currentY, Point out){
+			//the position of the layout and boundary
+			int layout_left = getRelativeLeft(layout);
+			int layout_top = getRelativeTop(layout);
+			int layout_right = layout_left + layout.getWidth();
+			int layout_bottom = layout_top + layout.getHeight();
+//			Log.v("mark","layout size:"+layout.getWidth()+" "+layout.getHeight());
+			
+			//check boundary
+			currentX = Math.max(layout_left, currentX);
+			currentX = Math.min(layout_right, currentX);
+			currentY = Math.max(layout_top, currentY);
+			currentY = Math.min(layout_bottom, currentY);
+//			Log.v("mark","current"+currentX+"  "+currentY);
+			
+//			Display display = this.getActivity().getWindowManager().getDefaultDisplay();
+//			Point size = new Point();
+//			display.getSize(size);
+//			int width = size.x;
+//			int height = size.y;
+//			Log.v("mark","screen size"+width+"  "+height);
+			
+			//calculate the block size
+			float blockHeight = ((float)layout.getHeight())/layout.getRowCount();
+			float blockWidth =  ((float)layout.getWidth())/layout.getColumnCount();
+//			Log.v("mark", "row:"+layout.getRowCount()+"  col:"+layout.getColumnCount());
+//			Log.v("mark", "block size:"+blockHeight+"  "+blockWidth);
+			
+			//calculate the coordinate on the grid
+			int row = (int) (currentY/blockHeight);
+			int col = (int) (currentX/blockWidth);
+			
+			if(out == null){ out = new Point(row,col);
+			}else{ out.x=row; out.y =col;  }
+		}
+		
+		private int getRelativeLeft(View myView) {
+		    if (myView.getParent() == myView.getRootView())
+		        return myView.getLeft();
+		    else
+		        return myView.getLeft() + getRelativeLeft((View) myView.getParent());
+		}
+
+		private int getRelativeTop(View myView) {
+		    if (myView.getParent() == myView.getRootView())
+		        return myView.getTop();
+		    else
+		        return myView.getTop() + getRelativeTop((View) myView.getParent());
+		}
+        
+        private View[] initTaskViews(LayoutInflater inflater, ViewGroup vg){
+        	View[] result = new View[taskList.length];
+        	for(int i =0; i<taskList.length;i++){
+        		String name = taskList[i];
+        		View view = result[i] = inflater.inflate(R.layout.view_taskitem, vg,false);
+        		view.setTag(name);
+        		view.setClickable(true);//for now TODO
+        		view.setOnClickListener(listener);
+        		ImageView iv = (ImageView)view.findViewById(R.id.taskitem_image);
+        		TextView tv = (TextView)view.findViewById(R.id.taskitem_text);
+        		iv.setImageResource(R.drawable.noimage);
+        		tv.setText(name);
+        		view.setOnLongClickListener(new View.OnLongClickListener() {
+    				@Override
+    				public boolean onLongClick(View v) {
+    					ClipData.Item item = new ClipData.Item((CharSequence)v.getTag());
+    		            String[] mimeTypes = {ClipDescription.MIMETYPE_TEXT_PLAIN};
+    		            ClipData dragData = new ClipData(v.getTag().toString(),mimeTypes, item);
+    		            View.DragShadowBuilder myShadow = new SquareDragShadowBuilder(v);     
+    		            v.startDrag(dragData,myShadow,null,0);
+    					return true;
+    				}
+    			});
+        	}
+        	return result;
+        }
+        
+        private void addViewToGrid(GridLayout grid,int[] cors){	
+        	for(int i =0, k =0;i<taskViews.length;i++,k+=2){
+        		int x = cors[k];
+        		int y = cors[k+1];
+        		View view = taskViews[i];
+        		GridLayout.LayoutParams param = new GridLayout.LayoutParams(
+        				GridLayout.spec(x),GridLayout.spec(y));
+        		 
+        		grid.addView(view,param);
+        	}
+        } 
+        private int[] getDefaultPosition(){
+        	int col = 4, row = 5, k = 0;
+        	int[] result = new int[col*row*2];
+        	for(int i=0;i<row;i++){
+    			for(int j=0;j<col;j++){
+    				result[k] = i;k+=1;
+    				result[k] = j;k+=1;
+    			}
+    		}
+        	return result;
+        }
+	}

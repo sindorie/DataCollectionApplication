@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/social_friend_addswitch_notfriend"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:background="@drawable/icon_addfriend" />
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/social_friend_addswitch_isfriend"
+        android:layout_width="20dp"
+        android:layout_height="20dp" />
+
+</RelativeLayout>

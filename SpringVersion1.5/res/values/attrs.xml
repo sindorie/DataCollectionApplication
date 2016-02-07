@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="MyGridLayout">
+        <attr name="col_count" format="integer" />
+        <attr name="row_count" format="integer"></attr>
+    </declare-styleable>
+    <declare-styleable name="FixedGridLayout">
+        <attr name="col" format="integer" />
+        <attr name="row" format="integer" />
+    </declare-styleable>
+
+</resources>

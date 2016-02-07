@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/bank_frontrecord_padding"
+    android:weightSum="1"
+    android:orientation="horizontal" >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/leftimage"
+        android:layout_weight="0.25"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/bank_frontrecord" />
+
+    <TextView
+        android:id="@+id/centertext"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/bank_frontrecord"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/rightimage"
+        android:layout_weight="0.25"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/bank_frontrecord" />
+
+</LinearLayout>

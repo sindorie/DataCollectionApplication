@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:paddingBottom="5dp" >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/social_newscomment_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentLeft="true" />
+	<RelativeLayout
+	    android:layout_width="match_parent"
+    	android:layout_height="80dp"
+	    android:background="#33B5E5"
+	    android:layout_toRightOf="@+id/social_newscomment_image" >
+    <tracker.UI.view.EventRecordedButton
+        android:id="@+id/social_newsfeed_element_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/social_newscomment_up"
+        android:background="@drawable/commenticon" />
+
+    <TextView
+        android:id="@+id/social_newscomment_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/social_newscomment_name"
+        android:text="Medium Text"
+        android:paddingLeft="10dp" />
+
+    <tracker.UI.view.EventRecordedButton
+        android:id="@+id/social_newscomment_up"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:paddingRight="3dp"
+        android:drawableRight="@drawable/thumbupicon"
+        android:background="#33B5E5"  />
+
+    <TextView
+        android:id="@+id/social_newscomment_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="5dp"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+	</RelativeLayout>
+</RelativeLayout>

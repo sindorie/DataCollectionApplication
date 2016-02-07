@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="bank_frontrecord">50dp</dimen>
+    <dimen name="bank_frontrecord_padding">10dp</dimen>
+    <dimen name="foodie_restlist_recrod_padding">10dp</dimen>
+    <dimen name="foodie_restlist_recrod_imageheight">200dp</dimen>
+    <dimen name="foodie_restlist_recrod_imagewidth">200dp</dimen>
+    <dimen name="foodie_restlist_recrod_imagepadding">10dp</dimen>
+    <dimen name="foodie_comment_padding">10dp</dimen>
+    <dimen name="foodie_comment_imageheight">100dp</dimen>
+    <dimen name="foodie_comment_imagewidth">100dp</dimen>
+    <dimen name="foodie_comment_imagepadding">10dp</dimen>
+    <dimen name="foodie_top_padding">10dp</dimen>
+    <dimen name="foodie_top_imageheight">150dp</dimen>
+    <dimen name="foodie_top_imagewidth">150dp</dimen>
+    <dimen name="foodie_top_imagepadding">15dp</dimen>
+    <dimen name="foodie_bottom_padding">10dp</dimen>
+    <dimen name="foodie_bottom_imageheight">100dp</dimen>
+    <dimen name="foodie_bottom_imagewidth">100dp</dimen>
+    <dimen name="foodie_bottom_imagepadding">10dp</dimen>
+    <dimen name="contact_detail_padding">10dp</dimen>
+    <dimen name="contact_detail_imagepadding">10dp</dimen>
+    <dimen name="contact_detail_imageheight">200dp</dimen>
+    <dimen name="contact_detail_imagewidth">200dp</dimen>
+	<dimen name="contact_detail_editwdith">200dp</dimen>
+	<dimen name="contact_detail_gap">15dp</dimen>
+</resources>

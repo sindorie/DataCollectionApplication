@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#D0CFD5"
+    android:orientation="vertical"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp" >
+
+    <FrameLayout
+        android:id="@+id/foodie_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="30dp" >
+
+        <tracker.UI.view.RegisteredEditText
+            android:id="@+id/social_friend_search"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@layout/rect_social_search"
+            android:hint="Search your friends"
+            android:paddingLeft="35dp"
+            android:singleLine="true" />
+
+        <tracker.UI.view.EventRecordedImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|left"
+            android:paddingLeft="5dp"
+            android:src="@drawable/ic_action_search" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:paddingBottom="2dp"
+            android:paddingRight="10dp"
+            android:paddingTop="2dp" >
+
+            <tracker.UI.view.EventRecordedImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@layout/bg_blackcircle"
+                android:src="@drawable/ic_action_remove" />
+        </LinearLayout>
+    </FrameLayout>
+    <!--
+    <ListView
+        android:id="@+id/social_friend_list"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        >
+    </ListView>
+    -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:id="@+id/social_friendlist_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

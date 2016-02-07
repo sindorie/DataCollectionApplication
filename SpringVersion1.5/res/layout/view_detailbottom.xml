@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4DBDD6"
+        android:padding="@dimen/foodie_bottom_padding" >
+
+        <tracker.UI.view.EventRecordedImageView
+            android:id="@+id/bottom_image"
+            android:layout_width="@dimen/foodie_bottom_imagewidth"
+            android:layout_height="@dimen/foodie_bottom_imageheight"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:padding="@dimen/foodie_bottom_imagepadding" />
+
+        <tracker.UI.view.RegisteredEditText
+            android:id="@+id/bottom_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bottom_rate"
+            android:layout_toRightOf="@+id/bottom_image"
+            android:ems="10"
+            android:hint="Enter review" />
+
+
+        <tracker.UI.view.EventRecordedRatingBar
+            android:id="@+id/bottom_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bottom_rate"
+            android:layout_toRightOf="@+id/bottom_edit"
+            android:text="Button"
+            android:textSize="@dimen/foodie_button_text" />
+
+        <RatingBar
+            android:id="@+id/bottom_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/bottom_image" />
+    </RelativeLayout>

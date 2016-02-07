@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/news_detailelement_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+   		android:paddingRight="5dp" >
+		<include layout="@layout/view_separater" />
+        <tracker.UI.view.EventRecordedImageView
+            android:id="@+id/news_detalelement_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="3dp" />
+
+        <TextView
+            android:id="@+id/news_detalelement_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textColor="#FFFFFF"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="10dp"
+   			android:paddingRight="10dp" />
+		<include layout="@layout/view_separater" />
+        <TextView
+            android:id="@+id/news_detalelement_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:textColor="#FFFFFF"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="10dp"
+   			android:paddingRight="10dp" />
+
+        <TextView
+            android:id="@+id/news_detalelement_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medium Text"
+            android:background="#FFFFFF"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:paddingLeft="10dp"
+   			android:paddingRight="10dp" />
+
+        <TextView 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/news_detailelemtn_comment" 
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#CCCCCC"
+            android:paddingLeft="10dp"
+   			android:paddingRight="10dp"/>
+        
+        <tracker.UI.view.RegisteredEditText
+            android:id="@+id/news_detailelement_edit"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:hint="enter your comment"
+            android:maxLines="4"
+            android:background="#FFFFFF"
+            android:padding="10dp" />
+
+        <tracker.UI.view.EventCheckerButton
+            android:id="@+id/news_detailelement_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="submit" />
+    </LinearLayout>
+
+</ScrollView>

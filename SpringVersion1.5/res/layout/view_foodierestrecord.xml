@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:padding="@dimen/foodie_restlist_recrod_padding" >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/foodieoverview_image"
+        android:layout_width="@dimen/foodie_restlist_recrod_imagewidth"
+        android:layout_height="@dimen/foodie_restlist_recrod_imageheight"
+        android:padding="@dimen/foodie_restlist_recrod_imagepadding"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/noimage" />
+
+    <TextView
+        android:id="@+id/foodieoverview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/foodieoverview_image"
+        android:text="Sample resturant name"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/foodieoverview_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/foodieoverview_name"
+        android:layout_below="@+id/foodieoverview_name"
+        android:text="Sample address -- linkway"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/foodieoverview_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foodieoverview_address"
+        android:layout_toRightOf="@+id/foodieoverview_image"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <tracker.UI.view.EventRecordedRatingBar
+        android:id="@+id/foodieoverview_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foodieoverview_phone"
+        android:layout_toRightOf="@+id/foodieoverview_image"
+        style="?android:attr/ratingBarStyleSmall" />
+
+</RelativeLayout>

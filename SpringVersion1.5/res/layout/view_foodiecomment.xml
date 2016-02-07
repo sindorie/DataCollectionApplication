@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:padding="@dimen/foodie_comment_padding"
+    >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/foodiecomment_photo"
+        android:layout_width="@dimen/foodie_comment_imagewidth"
+        android:layout_height="@dimen/foodie_comment_imageheight"
+		android:padding="@dimen/foodie_comment_imagepadding"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <TextView
+        android:id="@+id/foodiecomment_name"
+        android:layout_width="@dimen/foodie_comment_imagewidth"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/foodiecomment_photo"
+        android:layout_below="@+id/foodiecomment_photo"
+        android:gravity="center"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <tracker.UI.view.EventRecordedRatingBar
+        android:id="@+id/foodiecomment_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/foodiecomment_photo"
+        android:layout_toRightOf="@+id/foodiecomment_photo"
+        style="?android:attr/ratingBarStyleSmall" />
+
+    <TextView
+        android:id="@+id/foodiecomment_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/foodiecomment_rate"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/foodiecomment_rate"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

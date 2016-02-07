@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <tracker.UI.view.EventRecordedImageView
+        android:id="@+id/social_messagefrontelement_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:layout_toRightOf="@+id/social_messagefrontelement_image"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true" >
+
+            <TextView
+                android:id="@+id/social_message_frontelement_name"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="sample name"
+        		android:paddingLeft="5dp" />
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/social_message_frontelement_check"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:src="@drawable/checkmark" />
+
+            <TextView
+                android:id="@+id/social_message_frontelement_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@+id/social_message_frontelement_check"
+                android:text="4:20" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/social_messagefrontelement_message"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/relativeLayout1"
+            android:layout_toRightOf="@+id/social_messagefrontelement_image"
+            android:background="#CCCCCC"
+            android:text="Message"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+        	android:paddingLeft="5dp" />
+    </LinearLayout>
+
+</RelativeLayout>

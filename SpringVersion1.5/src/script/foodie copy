@@ -1,0 +1,301 @@
+package tracker.springversion1;
+
+import tracker.utility.MyArrayListAdapter;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.app.ListFragment;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class Foodie extends DrawerActivity implements TrackerInterface.FoodieInterface{
+
+	static FoodieRestaurant[] list;
+	static{
+		String[] names = {"Restuarant #1","Restuarant #2","Restuarant #3"};
+		String[] address = {"Address #1","Address #2","Address #3"};
+		String[] brief = {"Brief #1","Brief #2","Brief #3"};
+		Bitmap map = null;
+		list = new FoodieRestaurant[names.length];
+		for(int i= 0;i<names.length;i++){
+			list[i] = new FoodieRestaurant(i,map,names[i],address[i],brief[i],i+2);
+		}
+	}
+	
+	
+	private FragmentManager fragmentManager; 
+	private int toReplace;
+	
+	@Override
+	public void setCenterContent(Bundle savedInstanceState) {
+		toReplace = this.getCenterViewId();
+        fragmentManager = getFragmentManager();
+        Fragment fragment = null;
+        
+        if(savedInstanceState == null){
+        	FoodieList rlist = new FoodieList();
+        	fragment = rlist;
+        	MyArrayListAdapter<FoodieRestaurant> adapter = new MyArrayListAdapter<FoodieRestaurant>(this,list);
+        	rlist.setListAdapter(adapter);
+        	fragmentManager.beginTransaction().replace(toReplace, fragment,"level0")
+        		.addToBackStack("level0").commit();
+        }   
+	}
+	
+	@Override
+	public void onBackPressed(){
+	    int level = fragmentManager.getBackStackEntryCount();
+	    Log.v("mark","level: "+level);
+	    switch(level){
+	    case 0:
+	    case 1:{
+	    	fragmentManager.popBackStack();
+	    	super.onBackPressed(); break;
+	    }
+	    case 2:{
+	    	fragmentManager.popBackStack();
+	    	Fragment fragment = fragmentManager.findFragmentByTag("level0");
+	        FragmentTransaction ft = fragmentManager.beginTransaction();
+	        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+	        ft.replace(toReplace, fragment).commit();
+	    }break;
+	    case 3:{
+	    	fragmentManager.popBackStack();
+	    	Fragment fragment = fragmentManager.findFragmentByTag("level1");
+	        FragmentTransaction ft = fragmentManager.beginTransaction();
+	        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+	        ft.replace(toReplace, fragment).commit();
+	    }break;
+	    }
+	}
+	
+	@Override
+	public void foodieFrontListItemOnClickCallBack(AdapterView<?> arg0,
+			View arg1, int arg2, long arg3) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	protected void onSaveInstanceState (Bundle outState){
+		super.onSaveInstanceState(outState);
+	}
+	
+	private FoodieComment[] getComments(int id){
+		int total = 20;
+		FoodieComment[] result = new FoodieComment[total];
+		for(int i=0;i<total;i++){
+			result[i] = new FoodieComment("Customer #"+i,"Comment on Restaurant #"+id);
+		}
+		return result;
+	}
+
+	private void showDetail(FoodieRestaurant re, int index){
+		FoodieReview review = new FoodieReview();
+    	FoodieComment[] comments = getComments(index);
+    	MyArrayListAdapter adapter = new MyArrayListAdapter(this,comments);
+    	review.setListAdapter(adapter);
+		FragmentManager fragmentManager = getFragmentManager(); 
+		int toReplace = this.getCenterViewId(); 
+		fragmentManager.beginTransaction().replace(toReplace, review).commit();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	public static class FoodieList extends ListFragment{
+		public final static String DATAKEY = "data";
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
+			View v = inflater.inflate(R.layout.fragment_foodie_overview, container,false);
+			Bundle arg = this.getArguments();
+			if(arg!=null && arg.containsKey(DATAKEY)){
+				
+			}
+			return v;
+		}
+		public void onListItemClick (ListView l, View v, int position, long id) { 
+			Foodie act = (Foodie)this.getActivity();
+			ListAdapter adapter = this.getListAdapter();
+			if(adapter == null){
+				Log.v("mark", "adapter is null");
+			}else if(adapter.getItem(position)==null){
+				Log.v("mark", "item is null");
+			}else{
+				act.showDetail((FoodieRestaurant)this.getListAdapter().getItem(position),position);
+			}
+		}
+	}
+	
+	public static class FoodieRestaurant implements MyArrayListAdapter.GenerateView{
+		Bitmap image;
+		String name,address,brief;
+		int rating,id;
+		public FoodieRestaurant(int id,Bitmap image, String name,String brief, String addr,int rating){
+			this.id= id;
+			this.image = image; this.name = (name==null?"":name);
+			this.address = (addr==null?"":addr);
+			this.rating = rating;this.brief=(brief==null?"":brief);
+		}
+		
+		@Override
+		public View getView(Activity act, int position, View convertView,
+				ViewGroup parent) {
+			LayoutInflater inflater = act.getLayoutInflater();
+			View viewGround = (View)inflater.inflate(R.layout.view_foodie_restaurant_record,parent);
+			
+			ImageView imageView = (ImageView)viewGround.findViewById(R.id.foodie_overview_restaurant_record_photo);
+			TextView nameView = (TextView)viewGround.findViewById(R.id.foodie_overview_restaurant_record_name);
+			TextView addressView = (TextView)viewGround.findViewById(R.id.foodie_overview_restaurant_record_address);
+			TextView styleView = (TextView)viewGround.findViewById(R.id.foodie_overview_restaurant_record_style);
+			TextView rateView = (TextView)viewGround.findViewById(R.id.foodie_overview_restaurant_record_rate);
+			
+			nameView.setText(this.name);
+			addressView.setText(this.address);
+			styleView.setText(this.brief);
+			rateView.setText(this.rating+"");
+			if(image != null){  imageView.setImageBitmap(image);
+			}else{   imageView.setImageResource(R.drawable.noimage); }
+			return viewGround;
+		}
+		
+		
+		@Override
+		public View getDropDownView(Activity act, int position,
+				View convertView, ViewGroup parent) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	}
+
+
+	public class FoodieComment implements MyArrayListAdapter.GenerateView, Cloneable{
+
+		public FoodieComment(String name){
+			this(null,name,"Sample Comment",0);
+		} 
+		public FoodieComment(String name, String message){
+			this(null,name,message,0);
+		} 
+		public FoodieComment(String imageName,String name, String message, int rate){
+			this.imageName = imageName; this.comment = message; this.rate = rate;
+			this.name = name;
+		}
+		//TODO -- how the external program pass argument so that an image could be found
+		private String imageName;
+		private String name;
+		private String comment;
+		private int rate;
+		
+		@Override
+		public FoodieComment clone(){
+			return new FoodieComment(imageName,name,comment,rate);
+		}
+		
+		@Override
+		public View getView(Activity act, int position, View convertView, ViewGroup parent) {
+			LayoutInflater inflater = act.getLayoutInflater();
+			View reviewView = (View)inflater.inflate(R.layout.view_foodie_comment_record, parent);
+			if(this.imageName != null){
+				//TODO
+			}
+			if(this.comment == null){this.comment = ""; }
+			TextView nameView = (TextView)reviewView.findViewById(R.id.foodie_review_comment_view_name);
+			TextView messageView = (TextView)reviewView.findViewById(R.id.foodie_review_comment_view_message);
+			TextView rateView = (TextView)reviewView.findViewById(R.id.foodie_review_comment_view_rate);
+			stringDataChecker();
+			nameView.setText(this.name);
+			messageView.setText(this.comment);
+			rateView.setText(""+this.rate);
+			return reviewView;
+		}
+
+		private void stringDataChecker(){
+			if(name==null) name = "";
+			if(comment == null) comment = "";
+		}
+		@Override
+		public View getDropDownView(Activity act, int position, View convertView,
+				ViewGroup parent) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+	}
+	
+	public static class FoodieReview extends ListFragment implements OnClickListener{
+		private FoodieRestaurant reference;
+		private View commentSection;
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstaceState){
+			View v = inflater.inflate(R.layout.fragment_foodie_review, container,false);		
+			commentSection = v.findViewById(R.id.foodie_review_section);
+			commentSection.setVisibility(View.INVISIBLE);
+			Button submitButton = (Button)v.findViewById(R.id.foodie_review_submit);
+			submitButton.setOnClickListener(this);
+			return v;
+		}
+		
+		@Override
+		public void setListAdapter (ListAdapter adapter){
+			super.setListAdapter(adapter);
+			if(commentSection != null)commentSection.setVisibility(View.VISIBLE);
+			View view = this.getView();
+			if(view != null){
+				EditText edit = (EditText)this.getView().findViewById(R.id.foodie_review_edittext);
+				edit.setText("");
+			}
+		}
+
+		@Override
+		public void onClick(View arg0) {
+			EditText field = (EditText)this.getView().findViewById(R.id.foodie_review_edittext);
+			if(field != null){
+				String message = field.getText().toString();
+				if(message == null || message.trim().equals("")) return;
+//				
+//				FoodieSearch foodie = (FoodieSearch)this.getActivity();
+//				int id = foodie.getSeletedId();
+//				if(id >= 0){
+//					//TODO -- improvement needed as rate and other information needs to be dealt with
+//					FoodieCommentRecord[] records = FoodieSearch.commentCollection.get(id);
+//					int newlength = records.length+1;
+//					FoodieCommentRecord[] modified = new FoodieCommentRecord[newlength];
+//					System.arraycopy(records,0,modified,0,records.length );
+//					String imageName = null;
+//					GrandApplication app = (GrandApplication)this.getActivity().getApplication();
+//					String name = app.getDisplayedUsername();
+//					int rate = 3;
+//					modified[records.length] = new FoodieCommentRecord(imageName,name,message,rate);
+//					FoodieSearch.commentCollection.put(	id, modified);
+//					
+//					//update the adapter and view
+//					myUtility.MyArrayListAdapter<FoodieCommentRecord> commentAdapter 
+//						= new myUtility.MyArrayListAdapter<FoodieCommentRecord>(this.getActivity(),modified);
+//					this.setListAdapter(commentAdapter);
+//					this.setSelection(newlength-1);
+//				}
+			}else{
+				Log.v("info","text field not found");
+			}
+		}
+	}
+
+
+}

@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:id="@+id/contact_top"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:background="#EF7A6B"
+            android:gravity="center_vertical|left"
+            android:padding="@dimen/contact_detail_imagepadding" >
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/contact_image"
+                android:layout_width="@dimen/contact_detail_imagewidth"
+                android:layout_height="@dimen/contact_detail_imageheight"
+                android:padding="@dimen/contact_detail_imagepadding" />
+
+            <tracker.UI.view.RegisteredEditText
+                android:id="@+id/contactdetail_lname"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/contact_detail_textheight"
+                android:layout_below="@+id/contactdetail_fname"
+                android:layout_margin="@dimen/contact_detail_textmargin"
+                android:layout_toRightOf="@+id/contact_image"
+                android:background="@layout/rect_text_edit"
+                android:ems="10"
+                android:hint="last name"
+                android:paddingLeft="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <tracker.UI.view.RegisteredEditText
+                android:id="@+id/contactdetail_fname"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/contact_detail_textheight"
+                android:layout_alignTop="@+id/contact_image"
+                android:layout_margin="@dimen/contact_detail_textmargin"
+                android:layout_toRightOf="@+id/contact_image"
+                android:background="@layout/rect_text_edit"
+                android:ems="10"
+                android:hint="first name"
+                android:paddingLeft="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/contact_function"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/contact_top"
+            android:background="#E04D3E" >
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/contact_ic_call"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:padding="@dimen/contact_detail_iconpadding"
+                android:src="@drawable/ic_action_call" />
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/contact_ic_chat"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/contact_ic_call"
+                android:padding="@dimen/contact_detail_iconpadding"
+                android:src="@drawable/ic_action_chat" />
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/contact_ic_email"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@+id/contact_ic_chat"
+                android:padding="@dimen/contact_detail_iconpadding"
+                android:src="@drawable/ic_action_email" />
+
+            <tracker.UI.view.EventRecordedImageView
+                android:id="@+id/contact_ic_discard"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:padding="@dimen/contact_detail_iconpadding"
+                android:src="@drawable/ic_action_discard" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/contact_information"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/contact_function"
+            android:layout_margin="20dp"
+            android:background="@layout/rect_container"
+            android:padding="@dimen/contact_detail_imagepadding" >
+
+            <TextView
+                android:id="@+id/contact_text_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="phone"
+                android:textColor="#5D96BA" />
+
+            <tracker.UI.view.RegisteredEditText
+                android:id="@+id/contactdetail_phone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_text_phone"
+                android:ems="10"
+                android:hint="phone"
+                android:inputType="phone"
+                android:paddingBottom="@dimen/contact_detail_gap" />
+
+            <TextView
+                android:id="@+id/contact_text_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactdetail_phone"
+                android:text="email"
+                android:textColor="#5D96BA" />
+
+            <tracker.UI.view.RegisteredEditText
+                android:id="@+id/contactdetail_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_text_email"
+                android:ems="10"
+                android:hint="email"
+                android:inputType="textEmailAddress"
+                android:paddingBottom="@dimen/contact_detail_gap" />
+
+            <TextView
+                android:id="@+id/contact_text_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contactdetail_email"
+                android:text="address"
+                android:textColor="#5D96BA" />
+
+            <tracker.UI.view.RegisteredEditText
+                android:id="@+id/contactdetail_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/contact_text_address"
+                android:ems="10"
+                android:hint="address"
+                android:inputType="textPostalAddress"
+                android:paddingBottom="@dimen/contact_detail_gap" />
+        </RelativeLayout>
+
+        <tracker.UI.view.EventCheckerButton
+            android:id="@+id/contact_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/contact_information"
+            android:text="Change" />
+    </RelativeLayout>
+
+</ScrollView>

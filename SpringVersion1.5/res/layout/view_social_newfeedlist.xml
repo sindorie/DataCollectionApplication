@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#D0CFD5" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <tracker.UI.view.EventRecordedButton
+            android:id="@+id/social_newsfeed_status"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="status"
+            android:drawableLeft="@drawable/icon_status"
+            android:paddingLeft="8dp"
+            android:layout_margin="10dp"
+            android:background="@layout/bg_social_gradient_button"
+            android:textColor="#FFFFFF" />
+
+        <tracker.UI.view.EventRecordedButton
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:onClick="functionUnavailable"
+            android:text="photo"
+            android:drawableLeft="@drawable/photoicon"
+            android:paddingLeft="8dp"
+            android:layout_margin="10dp"
+            android:background="@layout/bg_social_gradient_button"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/social_newfeed_listcontent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"  >
+    </ListView>
+
+</LinearLayout>

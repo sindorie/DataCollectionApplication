@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <FrameLayout
+        android:id="@+id/contact_search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal" >
+
+        <tracker.UI.view.RegisteredEditText
+            android:id="@+id/contact_search_box"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@layout/rect_search_bar"
+            android:ems="10"
+            android:gravity="center_vertical|left"
+            android:hint="Enter first name"
+            android:paddingLeft="20dp"
+            android:textColor="#9A9E9A" />
+
+        <tracker.UI.view.EventRecordedImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|right"
+            android:padding="@dimen/contact_detail_iconpadding"
+            android:src="@drawable/ic_action_search" />
+    </FrameLayout>
+
+    <!--
+          Button
+        android:id="@+id/contact_add"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
+        android:text="Add" /
+    -->
+
+    <ListView
+        android:id="@+id/contact_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/contact_bottom"
+        android:layout_below="@+id/contact_search_bar"
+        android:drawSelectorOnTop="false"
+        android:gravity="center_vertical"
+        android:divider="#000000"
+        android:dividerHeight="1px"
+        android:paddingLeft="15dp" />
+
+ 
+    <include
+        android:id="@+id/contact_bottom"
+        layout="@layout/view_contactbottom" /> 
+</RelativeLayout>

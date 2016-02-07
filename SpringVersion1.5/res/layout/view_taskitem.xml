@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical"
+    android:padding = "12dp" >
+    
+	<tracker.UI.view.EventRecordedImageView
+	    android:id="@+id/taskitem_image"
+	    android:layout_weight="0.7"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp" />
+	
+	<TextView 
+	    android:id="@+id/taskitem_text"
+	    android:layout_weight="0.3"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:gravity="center_horizontal"
+	    android:textAppearance="?android:attr/textAppearanceMedium" /> 
+	    
+</LinearLayout>

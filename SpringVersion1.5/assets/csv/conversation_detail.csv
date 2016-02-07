@@ -1,0 +1,32 @@
+_id^conversation_id^friend_id^time^message
+0^0^42^1391893920000^????
+1^0^-1^1391894100000^What?
+2^0^42^1391894160000^Go to youtube and watch the leadership TedTalk
+3^1^40^1390155780000^Did you do that math hw?
+4^1^-1^1390155900000^some of it. Why?
+5^1^40^1390155960000^Its due today and everyone I talked to has not clue how to finish it.
+6^1^-1^1390156020000^Yeah, I got stuck too.
+7^1^40^1390156071000^Maybe the professor will give an extention if most people did not finsih it.
+8^1^-1^1390156140000^That would be nice.
+9^2^39^1390667640000^Hey!!!!!
+10^2^-1^1390667689000^What?
+11^2^39^1390667760000^What got into you?
+12^2^-1^1390668000000^I'm just tired.
+13^2^39^1390668060000^Oh :(
+14^2^39^1390680000000^Feel like going to a movie this weekend?
+15^2^-1^1390680060000^Sure!
+16^2^39^1390680180000^See you at the theater at 8pm. Its on me
+17^3^40^1392145200000^Hi, I think your site might be having browser compatibility issues. When I look at your website in Safari, it looks fine but when opening in Internet Explorer, it has some overlapping. I just wanted to give you a quick heads up!
+18^3^-1^1392145740000^That's for letting me know. Did you find any spelling errors?
+19^3^40^1392145800000^No, but if your site does not work you fail the assignment.
+20^3^-1^1392145860000^What? But, I gave the professor the copies of my code just in case.
+21^3^40^1392146340000^Yeah, you might want to re-read the rubric.
+22^3^-1^1392146460000^Snap! Let me fix that now. Thanks
+23^3^40^1392146520000^No problem
+24^4^-1^1391440366000^John's mom was asking about you today.
+25^4^38^1391440800000^Why?
+26^4^-1^1391440920000^She heard you about the car accident you had.
+27^4^38^1391440980000^Where did you see her?
+28^4^-1^1391441100000^At the boys bball game lastnight.
+29^4^38^1391441160000^Oh, how was it? Did we win?
+30^4^-1^1391441280000^It was a GOOD game. We won in over time.

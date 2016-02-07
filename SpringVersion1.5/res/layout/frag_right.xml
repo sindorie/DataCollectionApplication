@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:gravity="center"
+        android:padding="10dp" >
+
+        <RelativeLayout
+            android:id="@+id/right_answer_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:gravity="center"
+            android:padding="10dp" >
+
+            <LinearLayout
+                android:id="@+id/destination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="invisible" >
+
+                <TextView
+                    android:id="@+id/right_dest_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="TextView" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/answerquestion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/right_ans_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Answer"
+                    android:textSize="16dip" />
+
+                <tracker.UI.view.RegisteredEditText
+                    android:id="@+id/right_ans_inputfield"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10" />
+
+                <tracker.UI.view.EventCheckerButton
+                    android:id="@+id/right_ans_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Next" />
+            </LinearLayout>
+
+            <tracker.UI.view.EventRecordedButton
+                android:id="@+id/right_instruction_skip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/answerquestion"
+                android:text="Skip" />
+
+            <tracker.UI.view.EventRecordedButton
+                android:id="@+id/right_open_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="open left panel"
+                android:visibility="invisible" />
+            <!--
+                android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+            -->
+
+            <tracker.UI.view.EventRecordedButton
+                android:id="@+id/right_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/right_instruction_skip"
+                android:layout_alignBottom="@+id/right_instruction_skip"
+                android:layout_alignParentRight="true"
+                android:text="clear" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/right_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:visibility="invisible"
+            android:text="This panel is not used for this instruction.\nPleas answer this question within the application." />
+    </RelativeLayout>
+
+</ScrollView>

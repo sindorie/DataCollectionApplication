@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <tracker.UI.view.RegisteredEditText
+            android:id="@+id/foodie_overview_search_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/foodie_overview_search_button"
+            android:hint="Enter resturant name"
+            android:ems="10" />
+
+        <tracker.UI.view.EventRecordedButton
+            android:id="@+id/foodie_overview_search_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/foodie_overview_search_box"
+            android:layout_alignBottom="@+id/foodie_overview_search_box"
+            android:layout_alignParentRight="true"
+            android:text="GO" />
+    </RelativeLayout>
+    
+   
+
+    <ListView android:id="@+id/foodie_restlist"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:background="#F0F0F0"
+               android:layout_weight="1"
+               android:drawSelectorOnTop="false"/>
+</LinearLayout>
